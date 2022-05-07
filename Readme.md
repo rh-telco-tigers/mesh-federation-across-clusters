@@ -28,5 +28,7 @@ The steps provided here can work on Bare Metal or AWS as Cloud Provider for Open
 - Get the cluster API details, username and password for both clusters.
 - Run setup script. This script accepts Cluster details, context name for each cluster. Context name can be any string which is used while running oc tool with multiple clusters.
 
+Example: 
+
 ./setup.sh https://api.cluster1:6443 kubeadmin kubeadminpwd cluster1ctx https://api.cluster2:6443 kubeadmin kubeadminpwd cluster2ctx
 
