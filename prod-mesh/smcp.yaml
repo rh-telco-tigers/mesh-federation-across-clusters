@@ -4,8 +4,6 @@ metadata:
   namespace: prod-mesh
   name: prod-mesh
 spec:
-  cluster:
-    name: production-cluster
   addons:
     grafana:
       enabled: true
@@ -54,10 +52,12 @@ spec:
         enabled: true
         routerMode: sni-dnat
         service:
-          type: ClusterIP
+          type: LoadBalancer
           metadata:
             labels:
               federation.maistra.io/ingress-for: stage-mesh
+            annotations:
+              service.beta.kubernetes.io/aws-load-balancer-type: nlb
           ports:
           - port: 15443
             name: tls
